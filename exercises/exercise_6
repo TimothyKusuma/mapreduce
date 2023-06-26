@@ -1,0 +1,5 @@
+6. Change the reducer so that you calculate the average sales per category.
+
+SELECT category, AVG(amount) AS average_sales
+FROM transactions
+GROUP BY category;

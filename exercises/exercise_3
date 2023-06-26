@@ -1,0 +1,36 @@
+3. Change the mapper so that an error is raised when there are not six elements in the tuple.
+
+CREATE TABLE transactions (
+  date DATE,
+  time TIME,
+  location VARCHAR(255),
+  category VARCHAR(255),
+  amount DECIMAL(10, 2),
+  payment_type VARCHAR(255)
+);
+
+ALTER TABLE transactions
+ADD CONSTRAINT tuple_length_check CHECK (array_length(string_to_array(line, E'\t'), 1) = 6);
+
+
+INSERT INTO transactions (date, time, location, category, amount, payment_type)
+VALUES ('2012-12-31', '16:26', 'Anaheim', 'Men''s Clothing', 205.96, 'Discover');
+
+INSERT INTO transactions (date, time, location, category, amount, payment_type)
+VALUES ('2012-12-31', '16:26', 'Charlotte', 'CDs', 11.32, 'MasterCard');
+
+INSERT INTO transactions (date, time, location, category, amount, payment_type)
+VALUES ('2012-12-31', '16:26', 'Irvine', 'Men''s Clothing', 436, 'Visa');
+
+INSERT INTO transactions (date, time, location, category, amount, payment_type)
+VALUES ('2012-12-31', '16:26', 'Columbus', 'Men''s Clothing', 9.02, 'Discover');
+
+INSERT INTO transactions (date, time, location, category, amount, payment_type)
+VALUES ('2012-12-31', '16:26', 'Jacksonville', 'Children''s Clothing', 480.9, 'Amex');
+
+INSERT INTO transactions (date, time, location, category, amount, payment_type)
+VALUES ('2012-12-31', '16:26', 'Milwaukee', 'CDs', 31.27, 'Cash');
+
+
+
+

@@ -1,0 +1,6 @@
+5. Change the reducer, so that only categories are shown, that have a total number (count) of more than 114 purchases.
+
+SELECT category, COUNT(*) AS total_count
+FROM transactions
+GROUP BY category
+HAVING COUNT(*) > 114;

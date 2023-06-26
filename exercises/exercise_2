@@ -1,0 +1,4 @@
+2. Change the reducer so that you calculate the total number (count) of purchases for each category (not the sum of the sales).
+SELECT category, COUNT(*) AS count
+FROM transactions
+GROUP BY category;
