@@ -1,0 +1,9 @@
+4. Change the mapper so that you calculate the sum only for the categories "Computers", "Cameras" and "Video Games".
+
+SELECT category, SUM(amount) AS total_sum
+FROM transactions
+WHERE category IN ('Computers', 'Cameras', 'Video Games')
+GROUP BY category
+
+
+
